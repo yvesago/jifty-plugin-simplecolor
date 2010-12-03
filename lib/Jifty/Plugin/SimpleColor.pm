@@ -4,7 +4,7 @@ use warnings;
 package Jifty::Plugin::SimpleColor;
 use base qw/Jifty::Plugin Class::Accessor::Fast/;
 
-our $VERSION = '0.1';
+our $VERSION = '0.20';
 
 
 =head1 NAME

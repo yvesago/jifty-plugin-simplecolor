@@ -52,7 +52,9 @@ sub init {
     my $self = shift;
     my %opt  = @_;
 
-    my $javatab = join "','" , @{$opt{defaultColors}};
+    my $javatab = ($opt{defaultColors}) ?
+            join "','" , @{$opt{defaultColors}} :
+            "F00','00FF00','00F','FFF','000','FF9100','FFFA00','C000FF";
     $self->defaultColors( '[\''. $javatab .'\']' );
     Jifty->web->add_javascript(qw( jquery.colorPicker.js ) );
     Jifty->web->add_css('colorPicker.css');

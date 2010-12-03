@@ -23,7 +23,8 @@ sub render_widget {
     my $field;
 
     my $element_id = "@{[ $self->element_id ]}";
-    $element_id=~s/://g;
+    my $js_element_id = $element_id;
+       $js_element_id =~s/:/\\\\:/g;
 
     my ($plugin) = Jifty->find_plugin('Jifty::Plugin::SimpleColor');
 
@@ -45,7 +46,7 @@ $field .= qq!    jQuery.fn.colorPicker.defaultColors = $defaultColors ;! if ($de
 $field .= qq!    jQuery.fn.colorPicker.addColors( $addColors ) ;! if ($addColors) ;
 
 $field .= <<"EOF2";
-    jQuery('#$element_id').colorPicker();
+    jQuery('#$js_element_id').colorPicker();
   });
 </script>
 EOF2
